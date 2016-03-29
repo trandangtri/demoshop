@@ -8,6 +8,8 @@
 namespace Pyz\Yves\Checkout;
 
 use Pyz\Yves\Application\Plugin\Pimple;
+use Pyz\Yves\Braintree\Plugin\BraintreeHandlerPlugin;
+use Pyz\Yves\Braintree\Plugin\BraintreePayPalSubFormPlugin;
 use Pyz\Yves\Customer\Plugin\CustomerStepHandler;
 use Pyz\Yves\Payolution\Plugin\PayolutionHandlerPlugin;
 use Pyz\Yves\Payolution\Plugin\PayolutionInstallmentSubFormPlugin;
@@ -28,9 +30,11 @@ class CheckoutDependencyProvider extends AbstractBundleDependencyProvider
     const PLUGIN_INSTALLMENT_SUB_FORM = 'installment sub form plugin';
     const PLUGIN_INVOICE_SUB_FORM = 'invoice sub form plugin';
     const PLUGIN_SHIPMENT_SUB_FORM = 'shipment sub form plugin';
+    const PLUGIN_PAY_PAL_SUB_FORM = 'pay pal sub form plugin';
     const PLUGIN_CUSTOMER_STEP_HANDLER = 'step handler plugin';
     const PLUGIN_PAYOLUTION_HANDLER = 'payolution handler plugin';
     const PLUGIN_SHIPMENT_HANDLER = 'shipment handler plugin';
+    const PLUGIN_BRAINTREE_HANDLER = 'braintree handler plugin';
 
     /**
      * @param \Spryker\Yves\Kernel\Container $container
@@ -86,6 +90,10 @@ class CheckoutDependencyProvider extends AbstractBundleDependencyProvider
             return new PayolutionInvoiceSubFormPlugin();
         };
 
+        $container[self::PLUGIN_PAY_PAL_SUB_FORM] = function () {
+            return new BraintreePayPalSubFormPlugin();
+        };
+
         $container[self::PLUGIN_SHIPMENT_SUB_FORM] = function () {
             return new ShipmentSubFormPlugin();
         };
@@ -96,6 +104,10 @@ class CheckoutDependencyProvider extends AbstractBundleDependencyProvider
 
         $container[self::PLUGIN_PAYOLUTION_HANDLER] = function () {
             return new PayolutionHandlerPlugin();
+        };
+
+        $container[self::PLUGIN_BRAINTREE_HANDLER] = function () {
+            return new BraintreeHandlerPlugin();
         };
 
         $container[self::PLUGIN_SHIPMENT_HANDLER] = function () {

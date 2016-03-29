@@ -181,6 +181,7 @@ class FormFactory extends AbstractFactory
         return [
             $this->createPayolutionInvoiceSubFormPlugin(),
             $this->createPayolutionInstallmentSubFormPlugin(),
+            $this->createBraintreePayPalSubFormPlugin(),
         ];
     }
 
@@ -270,6 +271,14 @@ class FormFactory extends AbstractFactory
     protected function createPayolutionInstallmentSubFormPlugin()
     {
         return $this->getProvidedDependency(CheckoutDependencyProvider::PLUGIN_INSTALLMENT_SUB_FORM);
+    }
+
+    /**
+     * @return \Pyz\Yves\Braintree\Plugin\BraintreePayPalSubFormPlugin
+     */
+    protected function createBraintreePayPalSubFormPlugin()
+    {
+        return $this->getProvidedDependency(CheckoutDependencyProvider::PLUGIN_PAY_PAL_SUB_FORM);
     }
 
     /**

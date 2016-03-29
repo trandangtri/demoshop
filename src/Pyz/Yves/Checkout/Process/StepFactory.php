@@ -123,6 +123,7 @@ class StepFactory extends AbstractFactory
         return [
             PaymentTransfer::PAYOLUTION_INVOICE => $this->createPayolutionHandlerPlugin(),
             PaymentTransfer::PAYOLUTION_INSTALLMENT => $this->createPayolutionHandlerPlugin(),
+            'braintree_pay_pal' => $this->createBraintreeHandlerPlugin(),
         ];
     }
 
@@ -219,6 +220,14 @@ class StepFactory extends AbstractFactory
     public function getCheckoutClient()
     {
         return $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CHECKOUT);
+    }
+
+    /**
+     * @return \Pyz\Yves\Braintree\Plugin\BraintreeHandlerPlugin
+     */
+    protected function createBraintreeHandlerPlugin()
+    {
+        return $this->getProvidedDependency(CheckoutDependencyProvider::PLUGIN_BRAINTREE_HANDLER);
     }
 
 }
