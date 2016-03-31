@@ -37,7 +37,7 @@
             </transition>
 
             <!-- re-authorization -->
-            <transition happy="true" condition="Payolution/IsReAuthorizationApproved">
+            <transition condition="Payolution/IsReAuthorizationApproved">
                 <source>authorization succeeded</source>
                 <target>re-authorization succeeded</target>
                 <event>re-authorize payment</event>
@@ -68,14 +68,14 @@
                 <event>timeout authorized payment</event>
             </transition>
 
-            <transition happy="true" condition="Payolution/IsPreAuthorizationApproved">
+            <transition condition="Payolution/IsPreAuthorizationApproved">
                 <source>authorization timed-out</source>
                 <target>pre-authorization succeeded</target>
                 <event>pre-authorize timed-out payment</event>
             </transition>
 
             <!-- reversal -->
-            <transition happy="true" condition="Payolution/IsReversalApproved">
+            <transition condition="Payolution/IsReversalApproved">
                 <source>authorization succeeded</source>
                 <target>revert succeeded</target>
                 <event>revert payment</event>
