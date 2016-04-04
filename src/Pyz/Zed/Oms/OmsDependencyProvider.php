@@ -8,13 +8,11 @@
 namespace Pyz\Zed\Oms;
 
 use Spryker\Zed\Braintree\Communication\Plugin\Oms\Command\CapturePlugin as BraintreeCapturePlugin;
-use Spryker\Zed\Braintree\Communication\Plugin\Oms\Command\PreAuthorizePlugin as BraintreePreAuthorizePlugin;
-use Spryker\Zed\Braintree\Communication\Plugin\Oms\Command\ReAuthorizePlugin as BraintreeReAuthorizePlugin;
+use Spryker\Zed\Braintree\Communication\Plugin\Oms\Command\AuthorizePlugin as BraintreeAuthorizePlugin;
 use Spryker\Zed\Braintree\Communication\Plugin\Oms\Command\RefundPlugin as BraintreeRefundPlugin;
 use Spryker\Zed\Braintree\Communication\Plugin\Oms\Command\RevertPlugin as BraintreeRevertPlugin;
 use Spryker\Zed\Braintree\Communication\Plugin\Oms\Condition\IsCaptureApprovedPlugin as BraintreeIsCaptureApprovedPlugin;
-use Spryker\Zed\Braintree\Communication\Plugin\Oms\Condition\IsPreAuthorizationApprovedPlugin as BraintreeIsPreAuthorizationApprovedPlugin;
-use Spryker\Zed\Braintree\Communication\Plugin\Oms\Condition\IsReAuthorizationApprovedPlugin as BraintreeIsReAuthorizationApprovedPlugin;
+use Spryker\Zed\Braintree\Communication\Plugin\Oms\Condition\IsAuthorizationApprovedPlugin as BraintreeIsAuthorizationApprovedPlugin;
 use Spryker\Zed\Braintree\Communication\Plugin\Oms\Condition\IsRefundApprovedPlugin as BraintreeIsRefundApprovedPlugin;
 use Spryker\Zed\Braintree\Communication\Plugin\Oms\Condition\IsReversalApprovedPlugin as BraintreeIsReversalApprovedPlugin;
 use Spryker\Zed\Kernel\Container;
@@ -49,8 +47,7 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
             'Payolution/IsCaptureApproved' => new IsCaptureApprovedPlugin(),
             'Payolution/IsRefundApproved' => new IsRefundApprovedPlugin(),
 
-            'Braintree/IsPreAuthorizationApproved' => new BraintreeIsPreAuthorizationApprovedPlugin(),
-            'Braintree/IsReAuthorizationApproved' => new BraintreeIsReAuthorizationApprovedPlugin(),
+            'Braintree/IsAuthorizationApproved' => new BraintreeIsAuthorizationApprovedPlugin(),
             'Braintree/IsReversalApproved' => new BraintreeIsReversalApprovedPlugin(),
             'Braintree/IsCaptureApproved' => new BraintreeIsCaptureApprovedPlugin(),
             'Braintree/IsRefundApproved' => new BraintreeIsRefundApprovedPlugin(),
@@ -71,12 +68,10 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
             'Payolution/Capture' => new CapturePlugin(),
             'Payolution/Refund' => new RefundPlugin(),
 
-            'Braintree/PreAuthorize' => new BraintreePreAuthorizePlugin(),
-            'Braintree/ReAuthorize' => new BraintreeReAuthorizePlugin(),
+            'Braintree/Authorize' => new BraintreeAuthorizePlugin(),
             'Braintree/Revert' => new BraintreeRevertPlugin(),
             'Braintree/Capture' => new BraintreeCapturePlugin(),
             'Braintree/Refund' => new BraintreeRefundPlugin(),
-
         ];
     }
 

@@ -19,7 +19,7 @@
         </transitions>
 
         <events>
-            <event name="refund payment" manual="true" command="Payolution/Refund"/>
+            <event name="refund payment" manual="true" onEnter="true" command="Payolution/Refund"/>
         </events>
     </process>
 </statemachine>
