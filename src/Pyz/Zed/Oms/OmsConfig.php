@@ -18,7 +18,9 @@ class OmsConfig extends SprykerOmsConfig
 
     const ORDER_PROCESS_PAYOLUTION_PAYMENT_01 = 'PayolutionPayment01';
 
-    const ORDER_PROCESS_BRAINTREE_PAYMENT_01 = 'BraintreePayment01';
+    const ORDER_PROCESS_BRAINTREE_PAY_PAL_01 = 'BraintreePayPal01';
+
+    const ORDER_PROCESS_BRAINTREE_CREDIT_CARD_01 = 'BraintreeCreditCard01';
 
     const ORDER_PROCESS_INVOICE_01 = 'Invoice01';
 
@@ -38,7 +40,8 @@ class OmsConfig extends SprykerOmsConfig
         return [
             self::ORDER_PROCESS_NO_PAYMENT_01,
             self::ORDER_PROCESS_PREPAYMENT_01,
-            self::ORDER_PROCESS_BRAINTREE_PAYMENT_01,
+            self::ORDER_PROCESS_BRAINTREE_PAY_PAL_01,
+            self::ORDER_PROCESS_BRAINTREE_CREDIT_CARD_01,
             self::ORDER_PROCESS_PAYOLUTION_PAYMENT_01,
             self::ORDER_PROCESS_INVOICE_01,
         ];
