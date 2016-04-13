@@ -218,7 +218,7 @@ class StepProcess
      */
     protected function getNextRedirectUrl(StepInterface $currentStep)
     {
-        if (!empty($currentStep->getExternalRedirectUrl())) {
+        if ($currentStep->getExternalRedirectUrl()) {
             return $currentStep->getExternalRedirectUrl();
         }
 
