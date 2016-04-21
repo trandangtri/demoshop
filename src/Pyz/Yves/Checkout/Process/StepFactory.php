@@ -123,7 +123,8 @@ class StepFactory extends AbstractFactory
         return [
             PaymentTransfer::PAYOLUTION_INVOICE => $this->createPayolutionHandlerPlugin(),
             PaymentTransfer::PAYOLUTION_INSTALLMENT => $this->createPayolutionHandlerPlugin(),
-            PaymentTransfer::BRAINTREE => $this->createBraintreeHandlerPlugin(),
+            PaymentTransfer::BRAINTREE_PAY_PAL => $this->createBraintreeHandlerPlugin(),
+            PaymentTransfer::BRAINTREE_CREDIT_CARD => $this->createBraintreeHandlerPlugin(),
         ];
     }
 

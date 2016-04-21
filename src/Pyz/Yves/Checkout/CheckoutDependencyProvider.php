@@ -8,6 +8,7 @@
 namespace Pyz\Yves\Checkout;
 
 use Pyz\Yves\Application\Plugin\Pimple;
+use Pyz\Yves\Braintree\Plugin\BraintreeCreditCardSubFormPlugin;
 use Pyz\Yves\Braintree\Plugin\BraintreeHandlerPlugin;
 use Pyz\Yves\Braintree\Plugin\BraintreePayPalSubFormPlugin;
 use Pyz\Yves\Customer\Plugin\CustomerStepHandler;
@@ -31,6 +32,7 @@ class CheckoutDependencyProvider extends AbstractBundleDependencyProvider
     const PLUGIN_INVOICE_SUB_FORM = 'invoice sub form plugin';
     const PLUGIN_SHIPMENT_SUB_FORM = 'shipment sub form plugin';
     const PLUGIN_PAY_PAL_SUB_FORM = 'pay pal sub form plugin';
+    const PLUGIN_CREDIT_CARD_SUB_FORM = 'credit card sub form plugin';
     const PLUGIN_CUSTOMER_STEP_HANDLER = 'step handler plugin';
     const PLUGIN_PAYOLUTION_HANDLER = 'payolution handler plugin';
     const PLUGIN_SHIPMENT_HANDLER = 'shipment handler plugin';
@@ -92,6 +94,10 @@ class CheckoutDependencyProvider extends AbstractBundleDependencyProvider
 
         $container[self::PLUGIN_PAY_PAL_SUB_FORM] = function () {
             return new BraintreePayPalSubFormPlugin();
+        };
+
+        $container[self::PLUGIN_CREDIT_CARD_SUB_FORM] = function () {
+            return new BraintreeCreditCardSubFormPlugin();
         };
 
         $container[self::PLUGIN_SHIPMENT_SUB_FORM] = function () {
