@@ -282,8 +282,8 @@ module.exports = {
 
         function selectPayment() {
             var index = $('.checkout-payment input[type="radio"]').index(this);
-            $('.payolution-form').removeClass('show');
-            if (index > -1) $('.payolution-form').eq(index).addClass('show');
+            $('.payment-method').removeClass('show');
+            if (index > -1) $('.payment-method').eq(index).addClass('show');
         }
 
         selectCustomer.apply($('.customer-option:checked'));
