@@ -19,7 +19,7 @@
         </transitions>
 
         <events>
-            <event name="ship" manual="true"/>
+            <event name="ship" onEnter="true"/>
         </events>
     </process>
 </statemachine>
