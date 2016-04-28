@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-feature/braintree",
+    "spryker/spryker": "dev-beta/braintree",
 
     "psr/log": "~1.0.0",
     "propel/propel": "~2.0@dev",
