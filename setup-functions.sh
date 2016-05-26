@@ -7,6 +7,7 @@ if [[ -z "$SETUP" ]]; then
     exit 0
 fi
 
+ELASTICA_HOST='https://wdbqrzli:7p3ly67yefi7qanc@redwood-118570.eu-west-1.bonsai.io'
 DATABASE_NAME='DE_development_zed'
 VERBOSITY='-v'
 
@@ -90,9 +91,9 @@ function installDemoshop {
 
     installYves
 
-    configureCodeception
+    # configureCodeception
 
-    optimizeRepo
+    # optimizeRepo
 
     successText "Setup successful"
 
@@ -119,9 +120,10 @@ function installZed {
     vendor/bin/console collector:storage:export $VERBOSITY
     writeErrorMessage "DataStore setup failed"
 
-    labelText "Setting up cronjobs"
-    vendor/bin/console setup:jenkins:generate $VERBOSITY
-    writeErrorMessage "Cronjob setup failed"
+    # TEMPORARILY Disable Jenkins
+    # labelText "Setting up cronjobs"
+    # vendor/bin/console setup:jenkins:generate $VERBOSITY
+    # writeErrorMessage "Cronjob setup failed"
 
     labelText "Zed setup successful"
 }
@@ -151,14 +153,15 @@ function optimizeRepo {
 
 function resetDataStores {
     labelText "Flushing Elasticsearch"
-    curl -XDELETE 'http://localhost:10005/de_development_catalog/'
-    curl -XPUT 'http://localhost:10005/de_development_catalog/'
+    curl -XDELETE "${ELASTICA_HOST}/de_development_catalog/"
+    curl -XPUT "${ELASTICA_HOST}/de_development_catalog/"
     vendor/bin/console setup:search
     writeErrorMessage "Elasticsearch reset failed"
 
-    labelText "Flushing Redis"
-    redis-cli -p 10009 FLUSHALL
-    writeErrorMessage "Redis reset failed"
+    # TEMPORARILY Disable Redis CLI, We should flush manually
+    # labelText "Flushing Redis"
+    # redis-cli -p 10009 FLUSHALL
+    # writeErrorMessage "Redis reset failed"
 }
 
 function resetDevelopmentState {

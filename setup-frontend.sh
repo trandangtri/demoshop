@@ -9,19 +9,19 @@ fi
 
 if [[ `node -v | grep -E '^v[0-4]'` ]]; then
     labelText "Upgrade Node.js"
-    sudo $NPM cache clean -f
+    $NPM cache clean -f
 
-    sudo $NPM install -g n
+    $NPM install -g n
     writeErrorMessage "NPM build failed"
 
-    sudo n stable
+    # sudo n stable
 
     successText "Node.js updated to version `node -v`"
     successText "NPM updated to version `$NPM -v`"
 fi
 
 labelText "Install Antelope tool globally"
-sudo $NPM install -g github:spryker/antelope
+$NPM install -g github:spryker/antelope
 writeErrorMessage "Antelope setup failed"
 
 ANTELOPE_TOOL=`which antelope`
