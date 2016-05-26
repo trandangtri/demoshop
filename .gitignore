@@ -18,7 +18,6 @@ GTAGS
 .DS_Store
 
 # Y&Z
-/config/Shared/config_local*
 /config/Shared/console_env_local.php
 /config/Shared/cubes.*
 /config/Zed/behat.local.yml
