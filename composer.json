@@ -165,7 +165,8 @@
   ],
   "scripts": {
     "compile": [
-      "mkdir -p ./data/DE/logs"
+      "mkdir -p ./data/DE/logs",
+      "./setup-vm.sh -i"
     ]
   }
 }
