@@ -1,7 +1,14 @@
 {
   "require": {
+    "ext-gd": "*",
+    "ext-gmp": "*",
+    "ext-imagick": "*",
+    "ext-intl": "*",
+    "ext-mcrypt": "*",
+    "ext-memcached": "*",
+    "twig/extensions": "~1.0",
     "spryker/acl": "^2.0.0",
-    "spryker/application": "^2.0.0",
+    "spryker/application": "dev-heroku as 2.0.0",
     "spryker/assertion": "^2.0.0",
     "spryker/auth": "^2.0.0",
     "spryker/auth-mail-connector": "^2.0.0",
@@ -32,13 +39,13 @@
     "spryker/graphviz": "^2.0.0",
     "spryker/gui": "^2.0.0",
     "spryker/guzzle": "^2.0.0",
-    "spryker/heartbeat": "^2.0.0",
+    "spryker/heartbeat": "dev-heroku as 2.0.0",
     "spryker/installer": "^2.0.0",
     "spryker/invoice": "^2.0.0",
     "spryker/item-grouper": "^2.0.0",
     "spryker/item-grouper-wishlist-connector": "^2.0.0",
-    "spryker/kernel": "^2.0.0",
-    "spryker/library": "^2.0.0",
+    "spryker/kernel": "dev-heroku as 2.0.0",
+    "spryker/library": "dev-heroku as 2.0.0",
     "spryker/locale": "^2.0.0",
     "spryker/log": "^2.0.0",
     "spryker/mail": "^2.0.0",
@@ -66,7 +73,7 @@
     "spryker/product-option-exporter": "^2.0.0",
     "spryker/product-option-wishlist-connector": "^2.0.0",
     "spryker/product-search": "^2.0.0",
-    "spryker/propel": "^2.0.0",
+    "spryker/propel": "dev-heroku as 2.0.0",
     "spryker/redis": "^2.0.0",
     "spryker/refund": "^2.0.0",
     "spryker/sales": "^2.0.0",
@@ -74,14 +81,14 @@
     "spryker/sales-split": "^1.0.0",
     "spryker/search": "^2.0.0",
     "spryker/sequence-number": "^2.0.0",
-    "spryker/session": "^2.0.0",
+    "spryker/session": "dev-heroku as 2.0.0",
     "spryker/setup": "^2.0.0",
     "spryker/shipment": "^2.0.0",
     "spryker/silex": "^2.0.0",
     "spryker/sql-criteria-builder": "^1.0.0",
     "spryker/stock": "^2.0.0",
     "spryker/stock-sales-connector": "^2.0.0",
-    "spryker/storage": "^2.0.0",
+    "spryker/storage": "dev-heroku as 2.0.0",
     "spryker/symfony": "^2.0.0",
     "spryker/tax": "^2.0.0",
     "spryker/tax-product-connector": "^2.0.0",
@@ -125,6 +132,40 @@
     {
       "type": "composer",
       "url": "https://code.spryker.com/repo/private"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/trandangtri/Kernel"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/trandangtri/Propel"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/trandangtri/Application"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/trandangtri/Storage"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/trandangtri/Library"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/trandangtri/Session"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/trandangtri/Heartbeat"
     }
-  ]
+
+  ],
+  "scripts": {
+    "compile": [
+      "mkdir -p ./data/DE/logs"
+    ]
+  }
 }

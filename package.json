@@ -8,6 +8,10 @@
     "email": "info@spryker.com",
     "url": "http://spryker.com/"
   },
+  "engines": {
+    "node": "5.x.x",
+    "npm": "3.x.x"
+  },
   "dependencies": {
     "bootstrap-sass": "~3.3.6",
     "font-awesome": "~4.5.0",
