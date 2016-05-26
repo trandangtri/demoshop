@@ -85,9 +85,14 @@ class SessionServiceProvider extends AbstractServiceProvider
         $path = null;
         switch ($saveHandler) {
             case SessionConstants::SESSION_HANDLER_REDIS:
-                $path = Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PROTOCOL)
-                    . '://' . Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_HOST)
-                    . ':' . Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PORT);
+                $path = sprintf(
+                    '%s://%s:%s@%s:%s',
+                    Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PROTOCOL),
+                    Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_USERNAME),
+                    Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PASSWORD),
+                    Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_HOST),
+                    Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PORT)
+                );
                 break;
 
             case SessionConstants::SESSION_HANDLER_FILE:
